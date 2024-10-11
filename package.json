@@ -1,5 +1,5 @@
 {
-  "name": "@minimalappstudio/minimaluikit",
+  "name": "@minimalappstudio/ui",
   "version": "0.0.0",
   "type": "module",
   "types": "dist/index.d.ts",
