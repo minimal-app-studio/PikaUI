@@ -1,2 +1,2 @@
 export { Button } from './components/atoms/button'
-export { Card } from "./components/molecules/card"
+export { IconButton } from './components/molecules/iconButton'
