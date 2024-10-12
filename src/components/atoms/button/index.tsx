@@ -1,32 +1,40 @@
+import { twMerge } from 'tailwind-merge';
+import { useTheme } from '../../../context/themeProvider';
 
-export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
-  /** Button contents */
-  label: string;
-  /** Optional click handler */
+export type ButtonProps = {
+  variant?: "text" | "filled" | "outlined";
   onClick?: () => void;
-}
+  size?: "small" | "medium" | "large";
+  color?: "primary" | "secondary" | "default";
+  disabled?: boolean;
+  children?: React.ReactNode;
+};
 
-/** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
+  variant = 'filled',
+  color = "default",
+  onClick,
+  size = "medium",
+  disabled = false,
+  children,
   ...props
 }: ButtonProps) => {
+  const theme: any = useTheme(); // Access the merged theme from context
+
+  const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
+
+  const buttonClasses = twMerge(
+    theme.button.base,
+    theme.button.sizes[size],
+    theme.button.colors[color],
+    theme.button.variants[variant],
+    disabledStyles
+  );
+
   return (
-    <button
-      type="button"
-      className='rounded-sm font-xl'
-      {...props}
-    >
-      {label}
+    <button className={buttonClasses} onClick={onClick} disabled={disabled} {...props}>
+      {children}
     </button>
   );
-};
+}
+
