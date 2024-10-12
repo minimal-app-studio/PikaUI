@@ -1,5 +1,4 @@
 import type { StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import { IconButton } from '.';
 import { ThemeProvider } from '../../../context/themeProvider';
 
