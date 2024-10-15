@@ -1,9 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from '.';
-import { ThemeProvider } from '../../../context/themeProvider';
 
-const customTheme = {};
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
