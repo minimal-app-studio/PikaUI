@@ -1,9 +1,11 @@
 import type { StoryObj } from '@storybook/react';
 import { BottomNavigation } from '.';
+import { BottomNavItem } from '../../atoms/bottomNavItem';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
-import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+
 
 const meta: any = {
     title: 'Molecules/BottomNavigation',
@@ -21,43 +23,53 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const appNavigations = [
-    {
-        item: () => <>
-            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group" >
-                <FeedOutlinedIcon fontSize="medium" />
-            </button>
-        </>,
 
+const navigationsWithLabels = [
+    {
+        icon: FeedOutlinedIcon,
+        label: "News Feed",
     },
     {
-        item: () => <>
-            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <ExploreOutlinedIcon fontSize="medium" />
-            </button>
-        </>,
-
+        icon: ExploreOutlinedIcon,
+        label: "Explore",
     },
     {
-        item: () => <>
-            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <LoyaltyOutlinedIcon fontSize="medium" />
-            </button>
-        </>,
-
+        icon: LoyaltyOutlinedIcon,
+        label: "Sale",
     },
     {
-        item: () => <>
-            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group" >
-                <NotificationsActiveOutlinedIcon fontSize="medium" />
-            </button>
-        </>,
-
-    },
+        icon: NotificationsActiveOutlinedIcon,
+        label: "Alerts",
+    }
 ]
 
-export const MobileBottomNavigation: Story = {
+const navigationsWithoutLabels = [
+    {
+        icon: FeedOutlinedIcon,
+    },
+    {
+        icon: ExploreOutlinedIcon,
+    },
+    {
+        icon: LoyaltyOutlinedIcon,
+    },
+    {
+        icon: NotificationsActiveOutlinedIcon,
+    }
+]
+
+
+export const WithoutLabels: Story = {
     args: {
-        navigations: appNavigations
+        navigations: navigationsWithoutLabels,
+        listItem: BottomNavItem,
     },
 };
+
+export const WithLabels: Story = {
+    args: {
+        navigations: navigationsWithLabels,
+        listItem: BottomNavItem,
+    },
+};
+

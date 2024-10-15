@@ -2,13 +2,12 @@ import { useState } from "react";
 
 
 type SideNavigationProps = {
-    navigations: {
-        item: React.ElementType;
-    }[];
+    navigations: [];
     logo: React.ElementType;
+    listItem: React.ElementType;
 };
 
-export const SideNavigation = ({ navigations, logo: Logo }: SideNavigationProps) => {
+export const SideNavigation = ({ listItem: ListItem, navigations, logo: Logo }: SideNavigationProps) => {
     const [active, setActive] = useState(0);
     return (
         <>
@@ -16,8 +15,8 @@ export const SideNavigation = ({ navigations, logo: Logo }: SideNavigationProps)
                 <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                     <Logo />
                     <ul className={`space-y-2 font-medium hover:cursor-pointer ${active === 0 ? 'text-blue-500' : 'text-gray-500'}`}>
-                        {navigations.map(({ item: NavigationItem }, index) => (
-                            <NavigationItem key={index} handleClick={() => setActive(index)} isActive={active === index} />
+                        {navigations.map((navigationData, index) => (
+                            <ListItem key={index} data={navigationData} handleClick={() => setActive(index)} isActive={active === index} />
                         ))}
                     </ul>
                 </div>

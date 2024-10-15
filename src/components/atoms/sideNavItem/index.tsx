@@ -1,15 +1,17 @@
 import React from 'react';
 import { SvgIconComponent } from '@mui/icons-material'; // For type safety
 
-// Define props for the component
-type SideNavigationItemProps = {
-    icon: SvgIconComponent; // Material UI Icon component type
-    label: string; // Label for the navigation item
-    isActive: boolean; // Whether the item is active
-    handleClick: () => void; // The function to be called when the item is clicked
+type SideNavItemProps = {
+    data: {
+        icon: SvgIconComponent;
+        label: string;
+        isActive: boolean;
+        handleClick: () => void;
+    }
 };
 
-export const SideNavigationItem: React.FC<SideNavigationItemProps> = ({ icon: Icon, label, isActive, handleClick }) => {
+export const SideNavItem: React.FC<SideNavItemProps> = ({ data }) => {
+    const { icon: Icon, label, isActive, handleClick } = data;
     const _handleClick = () => {
         handleClick()
         console.log('clicked');
