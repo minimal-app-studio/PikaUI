@@ -1,8 +1,5 @@
 import type { StoryObj } from '@storybook/react';
 import { IconButton } from '.';
-import { ThemeProvider } from '../../../context/themeProvider';
-
-const customTheme = {};
 
 const meta: any = {
     title: 'Molecules/IconButton',
@@ -13,14 +10,7 @@ const meta: any = {
             exclude: ["onClick"]
         }
     },
-    tags: ['autodocs'],
-    decorators: [
-        (Story: any) => (
-            <ThemeProvider theme={customTheme}>
-                <Story />
-            </ThemeProvider>
-        ),
-    ],
+    tags: ['autodocs']
 }
 
 export default meta;

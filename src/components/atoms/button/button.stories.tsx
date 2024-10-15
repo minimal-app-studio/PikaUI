@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from '.';
 import { ThemeProvider } from '../../../context/themeProvider';
@@ -6,7 +6,7 @@ import { ThemeProvider } from '../../../context/themeProvider';
 const customTheme = {};
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: any = {
+const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,
   parameters: {
@@ -15,14 +15,7 @@ const meta: any = {
       exclude: ["onClick"]
     }
   },
-  tags: ['autodocs'],
-  decorators: [
-    (Story: any) => (
-      <ThemeProvider theme={customTheme}>
-        <Story />
-      </ThemeProvider>
-    ),
-  ],
+  tags: ['autodocs']
 }
 
 export default meta;
@@ -35,7 +28,7 @@ export const Primary: Story = {
     color: 'primary',
     variant: 'filled',
     children: 'Button',
-    onClick: fn(),
+    onClick: fn()
   },
 };
 
