@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import './style.css';
 import { ThemeProvider } from "../src/context/themeProvider";
+import { withConsole } from '@storybook/addon-console';
 import React from "react";
 
 const customTheme = {};
@@ -25,5 +26,6 @@ export const decorators = [
         <Story />
       </ThemeProvider>
     );
-  }
+  },
+  (storyFn, context) => withConsole()(storyFn)(context),
 ];

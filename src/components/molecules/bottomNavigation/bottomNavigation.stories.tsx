@@ -21,38 +21,43 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const appNavigations = [
+    {
+        item: () => <>
+            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group" >
+                <FeedOutlinedIcon fontSize="medium" />
+            </button>
+        </>,
 
+    },
+    {
+        item: () => <>
+            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <ExploreOutlinedIcon fontSize="medium" />
+            </button>
+        </>,
 
-const navigations = [
-    {
-        icon: FeedOutlinedIcon,
-        onClick: () => {
-            console.log('Home');
-        }
     },
     {
-        icon: ExploreOutlinedIcon,
-        onClick: () => {
-            console.log('Explore');
-        }
+        item: () => <>
+            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+                <LoyaltyOutlinedIcon fontSize="medium" />
+            </button>
+        </>,
+
     },
     {
-        icon: LoyaltyOutlinedIcon,
-        onClick: () => {
-            console.log('Sale');
-        }
-    },
-    {
-        icon: NotificationsActiveOutlinedIcon,
-        onClick: () => {
-            console.log('Alerts');
-        }
+        item: () => <>
+            <button type="button" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group" >
+                <NotificationsActiveOutlinedIcon fontSize="medium" />
+            </button>
+        </>,
+
     },
 ]
 
-
-export const Default: Story = {
+export const MobileBottomNavigation: Story = {
     args: {
-        navigations: navigations
+        navigations: appNavigations
     },
 };
